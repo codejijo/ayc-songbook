@@ -1,17 +1,16 @@
-import { Box, Container, Typography } from '@mui/material'
-import { useState } from 'react'
+import { ThemeProvider } from '@mui/material';
+import theme from './themes/theme';
+import Layout from './views/layouts';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Material UI Create React App example
-        </Typography>
-      </Box>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </ThemeProvider>
   )
 }
 
